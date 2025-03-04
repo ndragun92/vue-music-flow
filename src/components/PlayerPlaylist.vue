@@ -6,10 +6,7 @@
       '!-bottom-4 sm:!-bottom-24 md:!-bottom-44': !showPlaylistPopup,
     }"
   >
-    <div
-      ref="el"
-      class="flex h-14 cursor-move items-center justify-between gap-4 bg-neutral-950/72 px-4"
-    >
+    <div ref="el" class="flex h-14 items-center justify-between gap-4 bg-neutral-950/72 px-4">
       <div class="space-x-2 truncate text-xs">
         <div class="text-orange-300">Next up:</div>
         <div class="animate-marquee whitespace-nowrap">
