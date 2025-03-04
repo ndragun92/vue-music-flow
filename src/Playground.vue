@@ -6,7 +6,7 @@
         <li class="mb-6 font-semibold text-orange-400">Play single track example</li>
         <li v-for="track in tracks" :key="track.id" class="flex items-center gap-4">
           <button
-            class="flex cursor-pointer items-center justify-center hover:text-red-500"
+            class="flex cursor-pointer items-center justify-center hover:text-orange-500"
             type="button"
             @click="onPlaySingleTrack(track)"
           >
@@ -21,7 +21,7 @@
         <li class="mb-6 font-semibold text-orange-400">Play track as playlist example</li>
         <li v-for="track in tracks" :key="track.id" class="flex items-center gap-4">
           <button
-            class="flex cursor-pointer items-center justify-center hover:text-red-500"
+            class="flex cursor-pointer items-center justify-center hover:text-orange-500"
             type="button"
             @click="onPlayAsPlaylist(tracks, track)"
           >
@@ -61,6 +61,10 @@ import { ref } from 'vue'
 import IconHeart from './components/Icons/IconHeart.vue'
 import IconPlay from './components/Icons/IconPlay.vue'
 import IconPause from './components/Icons/IconPause.vue'
+
+defineOptions({
+  name: 'PagePlayground',
+})
 
 const { isTrackPlaying, onPlaySingleTrack, onPlayAsPlaylist } = usePlayer()
 
