@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "declaration": true,              // Generates .d.ts files
+    "declarationDir": "dist",         // Output folder for .d.ts files
+    "outDir": "dist",                 // Output folder for compiled JS files
+    "emitDeclarationOnly": true,      // Only emit declaration files (if you're using Vite for JS)
+    "jsx": "preserve",
+    "sourceMap": true
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.vue"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
