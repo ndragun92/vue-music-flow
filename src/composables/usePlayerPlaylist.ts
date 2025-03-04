@@ -33,7 +33,7 @@ export default function usePlayerPlaylist() {
         playlistOptions.value.repeat = 'single'
         break
       case 'single':
-        playlistOptions.value.repeat = 'all'
+        playlistOptions.value.repeat = playlist.value.length ? 'all' : 'none'
         break
       case 'all':
         playlistOptions.value.repeat = 'none'

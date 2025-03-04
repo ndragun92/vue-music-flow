@@ -105,15 +105,19 @@ export default function usePlayer(_options?: TOptions) {
       currentDuration.value = time || 0
     })
     wavesurfer.value?.on('finish', () => {
+      const { repeat } = playlistOptions.value
       if (playlist.value?.length) {
-        const { repeat } = playlistOptions.value
         if (repeat === 'single') {
           wavesurfer.value?.play()
         } else if (repeat === 'all') {
           onPlayNextTrack()
         }
       } else {
-        wavesurfer.value?.stop()
+        if (repeat === 'single') {
+          wavesurfer.value?.play()
+        } else {
+          wavesurfer.value?.stop()
+        }
       }
     })
     wavesurfer.value?.on('destroy', cleanupAfterDestroy)

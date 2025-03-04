@@ -46,6 +46,7 @@
       <slot name="controls" v-bind="{ togglePlayback, isPlaying }">
         <div class="flex items-center gap-1" :style="{ gridArea: 'controls' }">
           <button
+            v-if="playlist.length"
             class="flex size-10 cursor-pointer items-center justify-center rounded p-2 hover:text-orange-400"
             :class="{
               'text-orange-300': shuffle,
@@ -57,6 +58,7 @@
             <IconShuffle />
           </button>
           <button
+            v-if="playlist.length"
             class="flex size-10 cursor-pointer items-center justify-center rounded p-2 hover:text-orange-300"
             type="button"
             aria-label="Play previous track"
@@ -75,6 +77,7 @@
             <IconPause v-else />
           </button>
           <button
+            v-if="playlist.length"
             class="flex size-10 cursor-pointer items-center justify-center rounded p-2 hover:text-orange-300"
             type="button"
             aria-label="Play next track"
@@ -197,6 +200,7 @@ const {
   returnTrack,
   onPlayNextTrack,
   onPlayPreviousTrack,
+  playlist,
 } = usePlayer(props.options)
 
 const { onToggleRepeat, onToggleShuffle, playlistOptions, shuffle } = usePlayerPlaylist()
