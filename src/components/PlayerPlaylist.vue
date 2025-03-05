@@ -101,17 +101,17 @@ const { onPlayAsPlaylist, isTrackPlaying, playlist, returnTrack, returnNextTrack
 }
 
 .scrollbar::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  background-color: oklch(0.269 0 0);
+  -webkit-box-shadow: var(--scroll-bar-shadow);
+  background-color: var(--scroll-bar-background);
 }
 
 .scrollbar::-webkit-scrollbar {
-  width: 8px;
-  background-color: #f5f5f5;
+  width: var(--scroll-bar-width);
+  background-color: var(--scroll-bar-background-light);
 }
 
 .scrollbar::-webkit-scrollbar-thumb {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  background-color: oklch(0.205 0 0);
+  -webkit-box-shadow: var(--scroll-bar-shadow);
+  background-color: var(--scroll-bar-slider);
 }
 </style>
