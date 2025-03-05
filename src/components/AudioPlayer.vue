@@ -14,7 +14,7 @@
       }"
     />
     <div
-      class="relative z-50 grid h-60 min-w-72 items-center gap-x-2 border-t border-primary-border bg-primary px-2 whitespace-nowrap text-primary-typography sm:h-40 md:h-20 md:gap-x-4"
+      class="relative z-50 grid h-60 min-w-72 items-center gap-x-2 border-t border-primary-border bg-primary px-2 whitespace-nowrap text-primary-typography phone:h-40 tablet:h-20 tablet:gap-x-4"
       :class="[returnGrid]"
     >
       <div
@@ -35,7 +35,7 @@
         </slot>
       </div>
       <div
-        class="md:w-80 md:max-w-[initial]"
+        class="tablet:w-80 tablet:max-w-[initial]"
         :style="{
           gridArea: 'metadata',
         }"
@@ -160,7 +160,7 @@
         :style="{
           gridArea: 'actions',
         }"
-        class="flex items-center gap-x-2 md:gap-x-4"
+        class="flex items-center gap-x-2 tablet:gap-x-4"
       >
         <slot name="actions" v-bind="{ track: returnTrack }" />
         <slot name="close" v-bind="{ onClosePlayer }">
@@ -208,7 +208,7 @@ const props = defineProps<Props>()
 const returnGrid = computed(() => {
   return (
     props.grid ||
-    `[grid-template-areas:'image_metadata_metadata_metadata'_'currentDuration_waveform_waveform_endDuration'_'controls_controls_volume_actions'] grid-cols-[auto_minmax(0,1fr)_auto_auto] sm:[grid-template-areas:'image_metadata_controls_volume_actions'_'currentDuration_waveform_waveform_waveform_endDuration'] sm:grid-cols-[auto_minmax(0,1fr)_auto_auto_auto] md:[grid-template-areas:'image_metadata_controls_currentDuration_waveform_endDuration_volume_actions'] md:grid-cols-[auto_auto_auto_auto_minmax(0,1fr)_auto_auto_auto_auto]`
+    `[grid-template-areas:'image_metadata_metadata_metadata'_'currentDuration_waveform_waveform_endDuration'_'controls_controls_volume_actions'] grid-cols-[auto_minmax(0,1fr)_auto_auto] phone:[grid-template-areas:'image_metadata_controls_volume_actions'_'currentDuration_waveform_waveform_waveform_endDuration'] phone:grid-cols-[auto_minmax(0,1fr)_auto_auto_auto] tablet:[grid-template-areas:'image_metadata_controls_currentDuration_waveform_endDuration_volume_actions'] tablet:grid-cols-[auto_auto_auto_auto_minmax(0,1fr)_auto_auto_auto_auto]`
   )
 })
 

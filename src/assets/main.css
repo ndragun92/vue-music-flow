@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-    --breakpoint-sm: 40rem;
-    --breakpoint-md: 80rem;
+    --breakpoint-phone: 40rem;
+    --breakpoint-tablet: 80rem;
 
     --color-primary-dark: oklch(0.145 0 0);
     --color-primary: oklch(0.269 0 0);

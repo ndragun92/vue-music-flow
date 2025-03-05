@@ -1,9 +1,9 @@
 <template>
   <div
     v-if="playlist.length"
-    class="absolute right-8 bottom-full z-40 inline-block w-2xs border border-primary-border bg-primary !transition-all sm:right-40 md:right-48"
+    class="absolute right-8 bottom-full z-40 inline-block w-2xs border border-primary-border bg-primary !transition-all sm:right-40 tablet:right-48"
     :class="{
-      '!-bottom-4 sm:!-bottom-24 md:!-bottom-44': !showPlaylistPopup,
+      '!-bottom-4 sm:!-bottom-24 tablet:!-bottom-44': !showPlaylistPopup,
     }"
   >
     <div ref="el" class="flex h-14 items-center justify-between gap-4 bg-primary-dark/75 px-4">
