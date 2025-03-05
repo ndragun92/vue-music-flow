@@ -22,15 +22,17 @@
           gridArea: 'image',
         }"
       >
-        <div v-if="returnTrack?.artwork" class="p-1.5">
-          <img
-            class="size-14 rounded border border-neutral-900 bg-neutral-700 object-cover p-0.5"
-            :key="returnTrack?.artwork"
-            :src="returnTrack?.artwork"
-            :alt="returnTrack?.title"
-            loading="lazy"
-          />
-        </div>
+        <slot name="image" v-bind="{ track: returnTrack }">
+          <div v-if="returnTrack?.artwork" class="p-1.5">
+            <img
+              class="size-14 rounded border border-neutral-900 bg-neutral-700 object-cover p-0.5"
+              :key="returnTrack?.artwork"
+              :src="returnTrack?.artwork"
+              :alt="returnTrack?.title"
+              loading="lazy"
+            />
+          </div>
+        </slot>
       </div>
       <div
         class="md:w-80 md:max-w-[initial]"
@@ -38,13 +40,26 @@
           gridArea: 'metadata',
         }"
       >
-        <h3 class="truncate font-semibold">
-          {{ returnTrack?.title }}
-        </h3>
-        <h4 class="truncate text-sm text-gray-400">{{ returnTrack?.artist }}</h4>
+        <slot name="metadata" v-bind="{ track: returnTrack }">
+          <h3 class="truncate font-semibold">
+            {{ returnTrack?.title }}
+          </h3>
+          <h4 class="truncate text-sm text-gray-400">{{ returnTrack?.artist }}</h4>
+        </slot>
       </div>
-      <slot name="controls" v-bind="{ togglePlayback, isPlaying }">
-        <div class="flex items-center gap-1" :style="{ gridArea: 'controls' }">
+      <div class="flex items-center gap-1" :style="{ gridArea: 'controls' }">
+        <slot
+          name="controls"
+          v-bind="{
+            togglePlayback,
+            isPlaying,
+            playlist,
+            onPlayPreviousTrack,
+            onPlayNextTrack,
+            onToggleRepeat,
+            playlistOptions,
+          }"
+        >
           <button
             v-if="playlist.length"
             class="flex size-10 cursor-pointer items-center justify-center rounded p-2 hover:text-orange-400"
@@ -98,24 +113,28 @@
             <IconRepeatOne v-else-if="playlistOptions.repeat === 'single'" />
             <IconRepeatAll v-else />
           </button>
-        </div>
-      </slot>
+        </slot>
+      </div>
       <div
         class="text-center text-sm"
         :style="{
           gridArea: 'currentDuration',
         }"
       >
-        {{ formattedCurrentDuration }}
+        <slot name="currentDuration" v-bind="{ currentDuration: formattedCurrentDuration }">
+          {{ formattedCurrentDuration }}
+        </slot>
       </div>
       <div :style="{ gridArea: 'waveform' }" class="relative min-w-0 flex-1">
-        <div ref="wavesurferElement" class="w-full" />
-        <div
-          v-if="initializing"
-          class="absolute inset-0 z-50 flex items-center justify-center bg-neutral-800/85 text-center text-white"
-        >
-          <IconLoadingWaveform class="size-8" />
-        </div>
+        <slot name="waveform" v-bind="{ initializing }">
+          <div ref="wavesurferElement" class="w-full" />
+          <div
+            v-if="initializing"
+            class="absolute inset-0 z-50 flex items-center justify-center bg-neutral-800/85 text-center text-white"
+          >
+            <IconLoadingWaveform class="size-8" />
+          </div>
+        </slot>
       </div>
       <div
         class="text-center text-sm"
@@ -123,7 +142,9 @@
           gridArea: 'endDuration',
         }"
       >
-        {{ formattedDuration }}
+        <slot name="endDuration" v-bind="{ endDuration: formattedDuration }">
+          {{ formattedDuration }}
+        </slot>
       </div>
       <div
         :style="{
@@ -131,7 +152,9 @@
         }"
         class="relative"
       >
-        <PlayerVolume class="absolute" />
+        <slot name="volume">
+          <PlayerVolume class="absolute" />
+        </slot>
       </div>
       <div
         :style="{
@@ -140,14 +163,16 @@
         class="flex items-center gap-x-2 md:gap-x-4"
       >
         <slot name="actions" v-bind="{ track: returnTrack }" />
-        <button
-          type="button"
-          class="flex size-10 cursor-pointer items-center justify-center rounded p-1 hover:text-red-400"
-          aria-label="Close player"
-          @click.stop.prevent="onClosePlayer"
-        >
-          <IconClose />
-        </button>
+        <slot name="close" v-bind="{ onClosePlayer }">
+          <button
+            type="button"
+            class="flex size-10 cursor-pointer items-center justify-center rounded p-1 hover:text-red-400"
+            aria-label="Close player"
+            @click.stop.prevent="onClosePlayer"
+          >
+            <IconClose />
+          </button>
+        </slot>
       </div>
     </div>
   </div>
