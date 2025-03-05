@@ -1,6 +1,6 @@
 <template>
   <div
-    class="fixed right-0 bottom-0 left-0 z-40 text-white"
+    class="fixed right-0 bottom-0 left-0 z-40 text-primary-typography"
     :class="{
       'pointer-events-none opacity-0': !audioSource,
       'opacity-100 transition-opacity duration-700': audioSource,
@@ -14,7 +14,7 @@
       }"
     />
     <div
-      class="relative z-50 grid h-60 min-w-72 items-center gap-x-2 border-t border-neutral-900 bg-neutral-800 px-2 whitespace-nowrap text-white sm:h-40 md:h-20 md:gap-x-4"
+      class="relative z-50 grid h-60 min-w-72 items-center gap-x-2 border-t border-primary-border bg-primary-800 px-2 whitespace-nowrap text-primary-typography sm:h-40 md:h-20 md:gap-x-4"
       :class="[returnGrid]"
     >
       <div
@@ -25,7 +25,7 @@
         <slot name="image" v-bind="{ track: returnTrack }">
           <div v-if="returnTrack?.artwork" class="p-1.5">
             <img
-              class="size-14 rounded border border-neutral-900 bg-neutral-700 object-cover p-0.5"
+              class="size-14 rounded border border-primary-border bg-primary-700 object-cover p-0.5"
               :key="returnTrack?.artwork"
               :src="returnTrack?.artwork"
               :alt="returnTrack?.title"
@@ -44,7 +44,7 @@
           <h3 class="truncate font-semibold">
             {{ returnTrack?.title }}
           </h3>
-          <h4 class="truncate text-sm text-neutral-400">{{ returnTrack?.artist }}</h4>
+          <h4 class="truncate text-sm text-secondary-typography">{{ returnTrack?.artist }}</h4>
         </slot>
       </div>
       <div class="flex items-center gap-1" :style="{ gridArea: 'controls' }">
@@ -62,9 +62,9 @@
         >
           <button
             v-if="playlist.length"
-            class="flex size-10 cursor-pointer items-center justify-center rounded p-2 hover:text-orange-400"
+            class="flex size-10 cursor-pointer items-center justify-center rounded p-2 hover:text-primary-hover"
             :class="{
-              'text-orange-300': shuffle,
+              'text-primary-active': shuffle,
             }"
             type="button"
             aria-label="Toggle shuffle"
@@ -74,7 +74,7 @@
           </button>
           <button
             v-if="playlist.length"
-            class="flex size-10 cursor-pointer items-center justify-center rounded p-2 hover:text-orange-300"
+            class="flex size-10 cursor-pointer items-center justify-center rounded p-2 hover:text-primary-hover"
             type="button"
             aria-label="Play previous track"
             @click="onPlayPreviousTrack"
@@ -82,7 +82,7 @@
             <IconPrevious />
           </button>
           <button
-            class="flex size-10 cursor-pointer items-center justify-center rounded p-2 hover:text-orange-300"
+            class="flex size-10 cursor-pointer items-center justify-center rounded p-2 hover:text-primary-hover"
             type="button"
             :aria-label="isPlaying ? 'Pause' : 'Play'"
             :aria-pressed="isPlaying ? 'true' : 'false'"
@@ -93,7 +93,7 @@
           </button>
           <button
             v-if="playlist.length"
-            class="flex size-10 cursor-pointer items-center justify-center rounded p-2 hover:text-orange-300"
+            class="flex size-10 cursor-pointer items-center justify-center rounded p-2 hover:text-primary-hover"
             type="button"
             aria-label="Play next track"
             @click="onPlayNextTrack"
@@ -101,9 +101,9 @@
             <IconNext />
           </button>
           <button
-            class="flex size-10 cursor-pointer items-center justify-center rounded p-2 text-neutral-500 hover:text-orange-400"
+            class="flex size-10 cursor-pointer items-center justify-center rounded p-2 hover:text-primary-hover"
             :class="{
-              '!text-orange-300': ['all', 'single'].includes(playlistOptions.repeat),
+              'text-primary-active': ['all', 'single'].includes(playlistOptions.repeat),
             }"
             type="button"
             aria-label="Toggle repeat"
@@ -130,7 +130,7 @@
           <div ref="wavesurferElement" class="w-full" />
           <div
             v-if="initializing"
-            class="absolute inset-0 z-50 flex items-center justify-center bg-neutral-800/85 text-center text-white"
+            class="absolute inset-0 z-50 flex items-center justify-center bg-primary-800/85 text-center text-primary-typography"
           >
             <IconLoadingWaveform class="size-8" />
           </div>
