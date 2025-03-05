@@ -1,6 +1,6 @@
 {
   "name": "vue-music-flow",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Modern Vue 3 / Nuxt 3 audio player component with playlist and waveform visualization.",
   "main": "dist/vue-music-flow.umd.js",
   "module": "dist/vue-music-flow.es.js",
