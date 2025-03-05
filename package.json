@@ -30,7 +30,7 @@
     "type-check": "vue-tsc --build",
     "lint": "eslint . --fix",
     "format": "prettier --write src/",
-    "version": "bash -c 'nvm use $(cat .nvmrc)'"
+    "version-change": "bash -c 'nvm use $(cat .nvmrc)'"
   },
   "peerDependencies": {
     "wavesurfer.js": "^7.9.1",
