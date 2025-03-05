@@ -1,14 +1,14 @@
 <template>
   <div
     v-if="playlist.length"
-    class="absolute right-8 bottom-full z-40 inline-block w-2xs border border-primary-border bg-primary-800 !transition-all sm:right-40 md:right-48"
+    class="absolute right-8 bottom-full z-40 inline-block w-2xs border border-primary-border bg-primary !transition-all sm:right-40 md:right-48"
     :class="{
       '!-bottom-4 sm:!-bottom-24 md:!-bottom-44': !showPlaylistPopup,
     }"
   >
-    <div ref="el" class="flex h-14 items-center justify-between gap-4 bg-primary-950/72 px-4">
+    <div ref="el" class="flex h-14 items-center justify-between gap-4 bg-primary-dark/75 px-4">
       <div class="space-x-2 truncate text-xs">
-        <div class="text-orange-300">Next up:</div>
+        <div class="text-primary-active">Next up:</div>
         <div class="animate-marquee whitespace-nowrap">
           <span class="px-2 font-medium">{{ returnNextTrack?.title }}</span>
         </div>
@@ -16,7 +16,7 @@
       <div>
         <button
           type="button"
-          class="flex cursor-pointer items-center justify-center hover:text-red-400"
+          class="flex cursor-pointer items-center justify-center hover:text-primary-hover"
           aria-label="Minimize playlist popup"
           @click="showPlaylistPopup = !showPlaylistPopup"
         >
@@ -29,21 +29,19 @@
       <li
         v-for="track in playlist"
         :key="track.id"
-        class="flex w-full cursor-pointer items-center gap-2 px-2 py-1 hover:bg-primary-700/50"
+        class="flex w-full cursor-pointer items-center gap-2 px-2 py-1 hover:bg-secondary/50"
         :class="{
-          'sticky bottom-0 bg-primary-700/50': returnTrack?.id === track.id,
+          'sticky bottom-0 bg-secondary/50': returnTrack?.id === track.id,
         }"
       >
         <div class="group relative">
           <img
-            class="size-12 rounded border border-primary-border bg-primary-700 object-cover p-0.5"
+            class="size-12 rounded border border-primary-border bg-secondary object-cover p-0.5"
             :src="track.artwork"
             :alt="track.title"
             loading="lazy"
           />
-          <div
-            class="absolute inset-0 flex items-center justify-center group-hover:bg-primary-900/50"
-          >
+          <div class="absolute inset-0 flex items-center justify-center group-hover:bg-primary/50">
             <button
               :style="{ gridArea: 'controls' }"
               class="flex size-10 cursor-pointer items-center justify-center rounded p-2 hover:text-primary-hover"
@@ -74,7 +72,6 @@
 <script setup lang="ts">
 import IconLoadingWaveform from '../components/Icons/IconLoadingWaveform.vue'
 import { ref } from 'vue'
-import type { TPlayerTrack } from '../composables/usePlayer'
 import IconPlay from '../components/Icons/IconPlay.vue'
 import IconPause from '../components/Icons/IconPause.vue'
 import usePlayer from '../composables/usePlayer'

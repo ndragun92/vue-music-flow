@@ -14,7 +14,7 @@
       }"
     />
     <div
-      class="relative z-50 grid h-60 min-w-72 items-center gap-x-2 border-t border-primary-border bg-primary-800 px-2 whitespace-nowrap text-primary-typography sm:h-40 md:h-20 md:gap-x-4"
+      class="relative z-50 grid h-60 min-w-72 items-center gap-x-2 border-t border-primary-border bg-primary px-2 whitespace-nowrap text-primary-typography sm:h-40 md:h-20 md:gap-x-4"
       :class="[returnGrid]"
     >
       <div
@@ -25,7 +25,7 @@
         <slot name="image" v-bind="{ track: returnTrack }">
           <div v-if="returnTrack?.artwork" class="p-1.5">
             <img
-              class="size-14 rounded border border-primary-border bg-primary-700 object-cover p-0.5"
+              class="size-14 rounded border border-primary-border bg-secondary object-cover p-0.5"
               :key="returnTrack?.artwork"
               :src="returnTrack?.artwork"
               :alt="returnTrack?.title"
@@ -130,7 +130,7 @@
           <div ref="wavesurferElement" class="w-full" />
           <div
             v-if="initializing"
-            class="absolute inset-0 z-50 flex items-center justify-center bg-primary-800/85 text-center text-primary-typography"
+            class="absolute inset-0 z-50 flex items-center justify-center bg-primary/85 text-center text-primary-typography"
           >
             <IconLoadingWaveform class="size-8" />
           </div>
@@ -166,7 +166,7 @@
         <slot name="close" v-bind="{ onClosePlayer }">
           <button
             type="button"
-            class="flex size-10 cursor-pointer items-center justify-center rounded p-1 hover:text-red-400"
+            class="flex size-10 cursor-pointer items-center justify-center rounded p-1 hover:text-primary-hover"
             aria-label="Close player"
             @click.stop.prevent="onClosePlayer"
           >
