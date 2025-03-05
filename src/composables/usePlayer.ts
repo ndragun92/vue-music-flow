@@ -1,5 +1,5 @@
 import WaveSurfer, { type WaveSurferOptions } from 'wavesurfer.js'
-import { computed, readonly, ref, toRaw, watch } from 'vue'
+import { computed, ref, toRaw, watch } from 'vue'
 import { useLocalStorage } from '@vueuse/core'
 import usePlayerPlaylist from './usePlayerPlaylist'
 

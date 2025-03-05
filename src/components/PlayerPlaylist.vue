@@ -84,11 +84,6 @@ import IconCollapse from '../components/Icons/IconCollapse.vue'
 const showPlaylistPopup = ref(true)
 
 const { onPlayAsPlaylist, isTrackPlaying, playlist, returnTrack, returnNextTrack } = usePlayer()
-
-const tracks = ref<TPlayerTrack[]>([])
-fetch('/data.json')
-  .then((response) => response.json())
-  .then((data) => (tracks.value = data))
 </script>
 
 <style scoped>
