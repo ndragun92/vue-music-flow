@@ -44,7 +44,7 @@
           <h3 class="truncate font-semibold">
             {{ returnTrack?.title }}
           </h3>
-          <h4 class="truncate text-sm text-gray-400">{{ returnTrack?.artist }}</h4>
+          <h4 class="truncate text-sm text-neutral-400">{{ returnTrack?.artist }}</h4>
         </slot>
       </div>
       <div class="flex items-center gap-1" :style="{ gridArea: 'controls' }">

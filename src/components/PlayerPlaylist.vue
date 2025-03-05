@@ -61,7 +61,7 @@
           <div class="truncate text-sm font-semibold">
             {{ track.title }}
           </div>
-          <div class="truncate text-xs text-gray-400">{{ track.artist }}</div>
+          <div class="truncate text-xs text-neutral-400">{{ track.artist }}</div>
         </div>
         <div v-if="isTrackPlaying(track.id)">
           <IconLoadingWaveform class="size-4" />
