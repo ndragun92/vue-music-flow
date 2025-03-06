@@ -197,7 +197,6 @@ import usePlayerPlaylist from '../composables/usePlayerPlaylist'
 type Props = {
   options?: TOptions
   grid?: string
-  cols?: string
   hidePlaylistPopup?: boolean
 }
 
