@@ -2,19 +2,55 @@
 
 Modern Vue 3 / Nuxt 3 audio player component with playlist and waveform visualization.
 
-## Recommended IDE Setup
+[Documentation](https://vue-music-flow-docs.vercel.app/)
+[GitHub Repository](https://github.com/ndragun92/vue-music-flow)
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Compatibility
+>vue-music-flow works with version Vue 3+ or Nuxt 3+
 
-## Type Support for `.vue` Imports in TS
+## How to install
+>Recommended Node.js version is v22.x or higher
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+```sh
+npm i vue-music-flow
+```
 
-## Customize configuration
+## How to use
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+### Vue 3
 
-## Project Setup
+###### Component.vue
+```html
+<template>
+  <MusicFlow
+    :options="{
+      autoplay: true,
+    }"
+  />
+</template>
+
+<script setup lang="ts">
+import "vue-music-flow/dist/vue-music-flow.css";
+import { MusicFlow } from "vue-music-flow";
+</script>
+```
+
+### Nuxt 3
+
+###### nuxt.confg.ts
+```javascript
+export default defineNuxtConfig({
+  build: {
+    transpile: ["vue-music-flow"],
+  },
+});
+```
+### For more advanced customization visit documentation
+[Click here to visit documentation](https://vue-music-flow-docs.vercel.app/)
+
+___
+
+## Development
 
 ```sh
 npm install
@@ -44,10 +80,5 @@ npm run test:unit
 npm run lint
 ```
 
-### Internal Notes
-```sh
-npm version patch  # For bug fixes and patches
-npm version minor  # For new features that are backwards compatible
-npm version major  # For breaking changes
-npm publish # Publish package
-```
+## Want to support my work?
+<a href="https://www.buymeacoffee.com/ndragun92"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=ndragun92&button_colour=40DCA5&font_colour=ffffff&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00" /></a>

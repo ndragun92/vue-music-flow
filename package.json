@@ -12,6 +12,7 @@
   "type": "module",
   "author": "Nemanja Dragun <support@nemanjadragun.com> (https://github.com/ndragun92)",
   "license": "MIT",
+  "homepage": "https://vue-music-flow-docs.vercel.app/",
   "keywords": [
     "vue3",
     "nuxt3",
@@ -69,5 +70,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/ndragun92/vue-music-flow.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ndragun92/vue-music-flow/issues"
   }
 }
