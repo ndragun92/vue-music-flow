@@ -4,7 +4,7 @@ Modern Vue 3 / Nuxt 3 audio player component with playlist and waveform visualiz
 
 ![Preview](https://ik.imagekit.io/ltdassets/public/social.jpg)
 
-[Documentation](https://vue-music-flow-docs.vercel.app/)
+[Documentation](https://vue-music-flow-docs.vercel.app/getting-started)
 
 [GitHub Repository](https://github.com/ndragun92/vue-music-flow)
 
@@ -49,7 +49,7 @@ export default defineNuxtConfig({
 });
 ```
 ### For more advanced customization visit documentation
-[Click here to visit documentation](https://vue-music-flow-docs.vercel.app/)
+[Click here to visit documentation](https://vue-music-flow-docs.vercel.app/getting-started)
 
 ___
 
