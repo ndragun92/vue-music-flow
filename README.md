@@ -2,7 +2,10 @@
 
 Modern Vue 3 / Nuxt 3 audio player component with playlist and waveform visualization.
 
+![Preview](https://ik.imagekit.io/ltdassets/public/social.jpg)
+
 [Documentation](https://vue-music-flow-docs.vercel.app/)
+
 [GitHub Repository](https://github.com/ndragun92/vue-music-flow)
 
 ## Compatibility
