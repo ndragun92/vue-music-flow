@@ -26,44 +26,45 @@
       </div>
     </div>
     <ul class="scrollbar max-h-62 overflow-x-hidden overflow-y-auto">
-      <li
-        v-for="track in playlist"
-        :key="track.id"
-        class="flex w-full cursor-pointer items-center gap-2 px-2 py-1 hover:bg-secondary/50"
-        :class="{
-          'sticky bottom-0 bg-secondary/50': returnTrack?.id === track.id,
-        }"
-      >
-        <div class="group relative">
-          <img
-            class="size-12 rounded border border-primary-border bg-secondary object-cover p-0.5"
-            :src="track.artwork"
-            :alt="track.title"
-            loading="lazy"
-          />
-          <div class="absolute inset-0 flex items-center justify-center group-hover:bg-primary/50">
-            <button
-              :style="{ gridArea: 'controls' }"
-              class="flex size-10 cursor-pointer items-center justify-center rounded p-2 hover:text-primary-hover"
-              type="button"
-              :aria-label="isTrackPlaying(track.id) ? 'Pause' : 'Play'"
-              :aria-pressed="isTrackPlaying(track.id) ? 'true' : 'false'"
-              @click.stop.prevent="onPlayAsPlaylist(playlist, track)"
+      <li v-for="track in playlist" :key="track.id">
+        <button
+          class="group flex w-full cursor-pointer items-center gap-2 px-2 py-1 hover:bg-secondary/50"
+          :class="{
+            'sticky bottom-0 bg-secondary/50': returnTrack?.id === track.id,
+          }"
+          type="button"
+          :aria-label="isTrackPlaying(track.id) ? 'Pause' : 'Play'"
+          :aria-pressed="isTrackPlaying(track.id) ? 'true' : 'false'"
+          @click.stop.prevent="onPlayAsPlaylist(playlist, track)"
+        >
+          <span class="relative block">
+            <img
+              class="size-12 rounded border border-primary-border bg-secondary object-cover p-0.5"
+              :src="track.artwork"
+              :alt="track.title"
+              loading="lazy"
+            />
+            <span
+              class="absolute inset-0 flex items-center justify-center group-hover:bg-primary/50"
             >
-              <IconPlay v-if="!isTrackPlaying(track.id)" />
-              <IconPause v-else />
-            </button>
-          </div>
-        </div>
-        <div class="min-w-0 flex-1 text-left">
-          <div class="truncate text-sm font-semibold">
-            {{ track.title }}
-          </div>
-          <div class="truncate text-xs text-secondary-typography">{{ track.artist }}</div>
-        </div>
-        <div v-if="isTrackPlaying(track.id)">
-          <IconLoadingWaveform class="size-4" />
-        </div>
+              <span
+                class="flex size-10 cursor-pointer items-center justify-center rounded p-2 group-hover:text-primary-hover group-focus:text-primary-hover"
+              >
+                <IconPlay v-if="!isTrackPlaying(track.id)" />
+                <IconPause v-else />
+              </span>
+            </span>
+          </span>
+          <span class="block min-w-0 flex-1 text-left">
+            <span class="block truncate text-sm font-semibold">
+              {{ track.title }}
+            </span>
+            <span class="block truncate text-xs text-secondary-typography">{{ track.artist }}</span>
+          </span>
+          <span class="block" v-if="isTrackPlaying(track.id)">
+            <IconLoadingWaveform class="size-4" />
+          </span>
+        </button>
       </li>
     </ul>
   </div>
