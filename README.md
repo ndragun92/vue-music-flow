@@ -2,7 +2,7 @@
 
 Modern Vue 3 / Nuxt 3 audio player component with playlist and waveform visualization.
 
-![Preview](https://ik.imagekit.io/ltdassets/public/social.jpg)
+![Preview](https://ik.imagekit.io/ltdassets/public/social.jpg?updatedAt=1741803287465)
 
 [Documentation](https://vue-music-flow-docs.vercel.app/getting-started)
 
@@ -14,8 +14,14 @@ Modern Vue 3 / Nuxt 3 audio player component with playlist and waveform visualiz
 ## How to install
 >Recommended Node.js version is v22.x or higher
 
+### Vue 3
 ```sh
 npm i vue-music-flow
+```
+
+### Nuxt 3
+```sh
+npx nuxi module add nuxt-music-flow
 ```
 
 ## How to use
@@ -40,14 +46,17 @@ import { MusicFlow } from "vue-music-flow";
 
 ### Nuxt 3
 
-###### nuxt.confg.ts
-```javascript
-export default defineNuxtConfig({
-  build: {
-    transpile: ["vue-music-flow"],
-  },
-});
+###### Component.vue
+```html
+<template>
+  <MusicFlow
+    :options="{
+      autoplay: true,
+    }"
+  />
+</template>
 ```
+
 ### For more advanced customization visit documentation
 [Click here to visit documentation](https://vue-music-flow-docs.vercel.app/getting-started)
 
