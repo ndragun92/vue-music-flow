@@ -1,6 +1,6 @@
 {
   "name": "vue-music-flow",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "Modern Vue 3 / Nuxt 3 audio player component with playlist and waveform visualization.",
   "main": "dist/vue-music-flow.umd.js",
   "module": "dist/vue-music-flow.es.js",
@@ -32,10 +32,6 @@
     "lint": "eslint . --fix",
     "format": "prettier --write src/",
     "version-change": "bash -c 'nvm use $(cat .nvmrc)'"
-  },
-  "peerDependencies": {
-    "wavesurfer.js": "^7.9.1",
-    "vue": "^3.5.13"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.9",
