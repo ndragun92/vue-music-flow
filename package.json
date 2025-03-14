@@ -33,10 +33,6 @@
     "format": "prettier --write src/",
     "version-change": "bash -c 'nvm use $(cat .nvmrc)'"
   },
-  "peerDependencies": {
-    "wavesurfer.js": "^7.9.1",
-    "vue": "^3.5.13"
-  },
   "dependencies": {
     "@tailwindcss/vite": "^4.0.9",
     "@vueuse/core": "^12.7.0",

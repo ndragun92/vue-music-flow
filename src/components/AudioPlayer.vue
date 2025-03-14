@@ -207,7 +207,7 @@ const props = defineProps<Props>()
 const returnGrid = computed(() => {
   return (
     props.grid ||
-    `[grid-template-areas:'image_metadata_metadata_metadata'_'currentDuration_waveform_waveform_endDuration'_'controls_controls_volume_actions'] grid-cols-[auto_minmax(0,1fr)_auto_auto] phone:[grid-template-areas:'image_metadata_controls_volume_actions'_'currentDuration_waveform_waveform_waveform_endDuration'] phone:grid-cols-[auto_minmax(0,1fr)_auto_auto_auto] tablet:[grid-template-areas:'image_metadata_controls_currentDuration_waveform_endDuration_volume_actions'] tablet:grid-cols-[auto_auto_auto_auto_minmax(0,1fr)_auto_auto_auto_auto]`
+    `[grid-template-areas:'image_metadata_metadata_metadata'_'currentDuration_waveform_waveform_endDuration'_'controls_controls_volume_actions'] grid-cols-[auto_minmax(0,1fr)_auto_auto] phone:[grid-template-areas:'image_metadata_controls_volume_actions'_'currentDuration_waveform_waveform_waveform_endDuration'] phone:grid-cols-[auto_minmax(0,1fr)_auto_auto_auto] tablet:[grid-template-areas:'image_metadata_controls_currentDuration_waveform_endDuration_volume_actions'] tablet:grid-cols-[auto_auto_auto_minmax(0,3rem)_minmax(0,1fr)_minmax(0,3rem)_auto_auto_auto]`
   )
 })
 
