@@ -2,7 +2,7 @@
   <div class="relative inline-block">
     <button
       type="button"
-      class="flex size-10 cursor-pointer items-center justify-center rounded p-2 text-primary-typography hover:text-primary-hover"
+      class="text-mw-primary-typography flex size-10 cursor-pointer items-center justify-center rounded p-2 hover:text-primary-hover"
       :aria-expanded="showVolume"
       aria-controls="volume-slider"
       aria-label="Toggle Volume Control"
@@ -12,14 +12,14 @@
     </button>
     <div
       ref="el-volume-dropdown"
-      class="absolute bottom-[3.75rem] left-1 h-46 w-8 border-t border-r border-l border-primary-border bg-primary transition-opacity"
+      class="bg-mw-primary absolute bottom-[3.75rem] left-1 h-46 w-8 border-t border-r border-l border-primary-border transition-opacity"
       :class="{
         'opacity-100': showVolume,
         'opacity-0': !showVolume,
       }"
     >
       <div
-        class="group relative -bottom-22 -left-[4.05rem] h-2 w-40 -rotate-90 rounded-full bg-secondary"
+        class="group bg-mw-secondary relative -bottom-22 -left-[4.05rem] h-2 w-40 -rotate-90 rounded-full"
       >
         <input
           id="volume-slider"
@@ -35,12 +35,12 @@
         />
         <div class="pointer-events-none absolute inset-0 z-10 flex items-center">
           <div
-            class="absolute h-2 rounded-full bg-primary-active"
+            class="bg-mw-primary-active absolute h-2 rounded-full"
             :style="{ width: `${volume}%` }"
             aria-hidden="true"
           />
           <div
-            class="relative size-6 rotate-90 rounded-full bg-primary-active p-0.5 group-focus-within:ring-2"
+            class="bg-mw-primary-active relative size-6 rotate-90 rounded-full p-0.5 group-focus-within:ring-2"
             :style="{ left: `calc(${volume}% - 0.75rem)` }"
             :aria-label="`Volume: ${volume}%`"
             :aria-valuemin="1"
@@ -49,9 +49,9 @@
             aria-controls="volume-slider"
             role="slider"
           >
-            <span v-html="returnVolumeIcon" class="rotate-90 text-primary-typography" />
+            <span v-html="returnVolumeIcon" class="text-mw-primary-typography rotate-90" />
             <div
-              class="absolute top-0 right-[calc(100%+0.5rem)] rounded border border-primary-border bg-primary px-2 py-0.5 text-sm font-semibold text-primary-typography opacity-0 transition-opacity group-hover:opacity-100"
+              class="border-mw-primary-border bg-mw-primary absolute top-0 right-[calc(100%+0.5rem)] rounded border px-2 py-0.5 text-sm font-semibold text-primary-typography opacity-0 transition-opacity group-hover:opacity-100"
               aria-hidden="true"
             >
               {{ volume }}%

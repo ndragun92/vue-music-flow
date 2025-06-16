@@ -1,14 +1,14 @@
 <template>
   <div
     v-if="playlist.length"
-    class="absolute right-8 bottom-full z-40 inline-block w-2xs border border-primary-border bg-primary !transition-all sm:right-40 tablet:right-48"
+    class="border-mw-primary-border bg-mw-primary absolute right-8 bottom-full z-40 inline-block w-2xs border !transition-all sm:right-40 tablet:right-48"
     :class="{
       '!-bottom-4 sm:!-bottom-24 tablet:!-bottom-44': !showPlaylistPopup,
     }"
   >
-    <div ref="el" class="flex h-14 items-center justify-between gap-4 bg-primary-dark/75 px-4">
+    <div ref="el" class="bg-mw-primary-dark/75 flex h-14 items-center justify-between gap-4 px-4">
       <div class="space-x-2 truncate text-xs">
-        <div class="text-primary-active">Next up:</div>
+        <div class="text-mw-primary-active">Next up:</div>
         <div class="animate-marquee whitespace-nowrap">
           <span class="px-2 font-medium">{{ returnNextTrack?.title }}</span>
         </div>
@@ -16,7 +16,7 @@
       <div>
         <button
           type="button"
-          class="flex cursor-pointer items-center justify-center hover:text-primary-hover"
+          class="hover:text-mw-primary-hover flex cursor-pointer items-center justify-center"
           aria-label="Minimize playlist popup"
           @click="showPlaylistPopup = !showPlaylistPopup"
         >
@@ -30,13 +30,13 @@
         v-for="track in playlist"
         :key="track.id"
         :class="{
-          'sticky bottom-0 bg-secondary/50': returnTrack?.id === track.id,
+          'bg-mw-secondary/50 sticky bottom-0': returnTrack?.id === track.id,
         }"
       >
         <button
-          class="group flex w-full cursor-pointer items-center gap-2 px-2 py-1 hover:bg-secondary/50"
+          class="group hover:bg-mw-secondary/50 flex w-full cursor-pointer items-center gap-2 px-2 py-1"
           :class="{
-            'sticky bottom-0 bg-secondary/50': returnTrack?.id === track.id,
+            'bg-mw-secondary/50 sticky bottom-0': returnTrack?.id === track.id,
           }"
           type="button"
           :aria-label="isTrackPlaying(track.id) ? 'Pause' : 'Play'"
@@ -45,16 +45,16 @@
         >
           <span class="relative block">
             <img
-              class="size-12 rounded border border-primary-border bg-secondary object-cover p-0.5"
+              class="border-mw-primary-border bg-mw-secondary size-12 rounded border object-cover p-0.5"
               :src="track.artwork"
               :alt="track.title"
               loading="lazy"
             />
             <span
-              class="absolute inset-0 flex items-center justify-center group-hover:bg-primary/50"
+              class="group-hover:bg-mw-primary/50 absolute inset-0 flex items-center justify-center"
             >
               <span
-                class="flex size-10 cursor-pointer items-center justify-center rounded p-2 group-hover:text-primary-hover group-focus:text-primary-hover"
+                class="group-hover:text-mw-primary-hover flex size-10 cursor-pointer items-center justify-center rounded p-2 group-focus:text-primary-hover"
               >
                 <IconPlay v-if="!isTrackPlaying(track.id)" />
                 <IconPause v-else />
@@ -65,7 +65,9 @@
             <span class="block truncate text-sm font-semibold">
               {{ track.title }}
             </span>
-            <span class="block truncate text-xs text-secondary-typography">{{ track.artist }}</span>
+            <span class="text-mw-secondary-typography block truncate text-xs">{{
+              track.artist
+            }}</span>
           </span>
           <span class="block" v-if="isTrackPlaying(track.id)">
             <IconLoadingWaveform class="size-4" />

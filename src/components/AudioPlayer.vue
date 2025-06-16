@@ -1,6 +1,6 @@
 <template>
   <div
-    class="fixed right-0 bottom-0 left-0 z-40 text-primary-typography"
+    class="text-mw-primary-typography fixed right-0 bottom-0 left-0 z-40"
     :class="{
       'pointer-events-none opacity-0': !audioSource,
       'opacity-100 transition-opacity duration-700': audioSource,
@@ -14,7 +14,7 @@
       }"
     />
     <div
-      class="relative z-50 grid h-60 min-w-72 items-center gap-x-2 border-t border-primary-border bg-primary px-2 whitespace-nowrap text-primary-typography phone:h-40 tablet:h-20 tablet:gap-x-4"
+      class="border-mw-primary-border bg-mw-primary text-mw-primary-typography relative z-50 grid h-60 min-w-72 items-center gap-x-2 border-t px-2 whitespace-nowrap phone:h-40 tablet:h-20 tablet:gap-x-4"
       :class="[returnGrid]"
     >
       <div
@@ -25,7 +25,7 @@
         <slot name="image" v-bind="{ track: returnTrack }">
           <div v-if="returnTrack?.artwork" class="p-1.5">
             <img
-              class="size-14 rounded border border-primary-border bg-secondary object-cover p-0.5"
+              class="border-mw-primary-border bg-mw-secondary size-14 rounded border object-cover p-0.5"
               :key="returnTrack?.artwork"
               :src="returnTrack?.artwork"
               :alt="returnTrack?.title"
@@ -44,7 +44,7 @@
           <h3 class="truncate font-semibold">
             {{ returnTrack?.title }}
           </h3>
-          <h4 class="truncate text-sm text-secondary-typography">{{ returnTrack?.artist }}</h4>
+          <h4 class="text-mw-secondary-typography truncate text-sm">{{ returnTrack?.artist }}</h4>
         </slot>
       </div>
       <div class="flex items-center gap-1" :style="{ gridArea: 'controls' }">
@@ -62,9 +62,9 @@
         >
           <button
             v-if="playlist.length"
-            class="flex size-10 cursor-pointer items-center justify-center rounded p-2 hover:text-primary-hover"
+            class="hover:text-mw-primary-hover flex size-10 cursor-pointer items-center justify-center rounded p-2"
             :class="{
-              'text-primary-active': shuffle,
+              'text-mw-primary-active': shuffle,
             }"
             type="button"
             aria-label="Toggle shuffle"
@@ -74,7 +74,7 @@
           </button>
           <button
             v-if="playlist.length"
-            class="flex size-10 cursor-pointer items-center justify-center rounded p-2 hover:text-primary-hover"
+            class="hover:text-mw-primary-hover flex size-10 cursor-pointer items-center justify-center rounded p-2"
             type="button"
             aria-label="Play previous track"
             @click="onPlayPreviousTrack"
@@ -82,7 +82,7 @@
             <IconPrevious />
           </button>
           <button
-            class="flex size-10 cursor-pointer items-center justify-center rounded p-2 hover:text-primary-hover"
+            class="hover:text-mw-primary-hover flex size-10 cursor-pointer items-center justify-center rounded p-2"
             type="button"
             :aria-label="isPlaying ? 'Pause' : 'Play'"
             :aria-pressed="isPlaying ? 'true' : 'false'"
@@ -93,7 +93,7 @@
           </button>
           <button
             v-if="playlist.length"
-            class="flex size-10 cursor-pointer items-center justify-center rounded p-2 hover:text-primary-hover"
+            class="hover:text-mw-primary-hover flex size-10 cursor-pointer items-center justify-center rounded p-2"
             type="button"
             aria-label="Play next track"
             @click="onPlayNextTrack"
@@ -101,9 +101,9 @@
             <IconNext />
           </button>
           <button
-            class="flex size-10 cursor-pointer items-center justify-center rounded p-2 hover:text-primary-hover"
+            class="hover:text-mw-primary-hover flex size-10 cursor-pointer items-center justify-center rounded p-2"
             :class="{
-              'text-primary-active': ['all', 'single'].includes(playlistOptions.repeat),
+              'text-mw-primary-active': ['all', 'single'].includes(playlistOptions.repeat),
             }"
             type="button"
             aria-label="Toggle repeat"
@@ -130,7 +130,7 @@
           <div ref="wavesurferElement" class="w-full" />
           <div
             v-if="initializing"
-            class="absolute inset-0 z-50 flex items-center justify-center bg-primary/85 text-center text-primary-typography"
+            class="bg-mw-primary/85 text-mw-primary-typography absolute inset-0 z-50 flex items-center justify-center text-center"
           >
             <IconLoadingWaveform class="size-8" />
           </div>
@@ -166,7 +166,7 @@
         <slot name="close" v-bind="{ onClosePlayer }">
           <button
             type="button"
-            class="flex size-10 cursor-pointer items-center justify-center rounded p-1 hover:text-primary-hover"
+            class="hover:text-mw-primary-hover flex size-10 cursor-pointer items-center justify-center rounded p-1"
             aria-label="Close player"
             @click.stop.prevent="onClosePlayer"
           >
