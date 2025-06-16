@@ -26,7 +26,13 @@
       </div>
     </div>
     <ul class="scrollbar max-h-62 overflow-x-hidden overflow-y-auto">
-      <li v-for="track in playlist" :key="track.id">
+      <li
+        v-for="track in playlist"
+        :key="track.id"
+        :class="{
+          'sticky bottom-0 bg-secondary/50': returnTrack?.id === track.id,
+        }"
+      >
         <button
           class="group flex w-full cursor-pointer items-center gap-2 px-2 py-1 hover:bg-secondary/50"
           :class="{
