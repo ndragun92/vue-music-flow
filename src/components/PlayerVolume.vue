@@ -1,25 +1,25 @@
 <template>
-  <div class="relative inline-block">
+  <div class="mw:relative mw:inline-block">
     <button
       type="button"
-      class="text-mw-primary-typography flex size-10 cursor-pointer items-center justify-center rounded p-2 hover:text-primary-hover"
+      class="mw:flex mw:size-10 mw:cursor-pointer mw:items-center mw:justify-center mw:rounded mw:p-2 mw:text-mw-primary-typography mw:hover:text-mw-primary-hover"
       :aria-expanded="showVolume"
       aria-controls="volume-slider"
       aria-label="Toggle Volume Control"
       @click.stop.prevent="showVolume = true"
     >
-      <span v-html="returnVolumeIcon" class="size-full" />
+      <span v-html="returnVolumeIcon" class="mw:size-full" />
     </button>
     <div
       ref="el-volume-dropdown"
-      class="bg-mw-primary absolute bottom-[3.75rem] left-1 h-46 w-8 border-t border-r border-l border-primary-border transition-opacity"
+      class="mw:absolute mw:bottom-[3.75rem] mw:left-1 mw:h-46 mw:w-8 mw:border-t mw:border-r mw:border-l mw:border-mw-primary-border mw:bg-mw-primary mw:transition-opacity"
       :class="{
-        'opacity-100': showVolume,
-        'opacity-0': !showVolume,
+        'mw:opacity-100': showVolume,
+        'mw:opacity-0': !showVolume,
       }"
     >
       <div
-        class="group bg-mw-secondary relative -bottom-22 -left-[4.05rem] h-2 w-40 -rotate-90 rounded-full"
+        class="mw:group mw:relative mw:-bottom-22 mw:-left-[4.05rem] mw:h-2 mw:w-40 mw:-rotate-90 mw:rounded-full mw:bg-mw-secondary"
       >
         <input
           id="volume-slider"
@@ -27,20 +27,20 @@
           :min="0"
           :max="100"
           v-model.number="volume"
-          class="absolute -top-1 left-0 h-4 w-full cursor-pointer opacity-0"
+          class="mw:absolute mw:-top-1 mw:left-0 mw:h-4 mw:w-full mw:cursor-pointer mw:opacity-0"
           :aria-valuenow="volume"
           :aria-valuemin="0"
           :aria-valuemax="100"
           aria-label="Volume Slider"
         />
-        <div class="pointer-events-none absolute inset-0 z-10 flex items-center">
+        <div class="mw:pointer-events-none mw:absolute mw:inset-0 mw:z-10 mw:flex mw:items-center">
           <div
-            class="bg-mw-primary-active absolute h-2 rounded-full"
+            class="mw:absolute mw:h-2 mw:rounded-full mw:bg-mw-primary-active"
             :style="{ width: `${volume}%` }"
             aria-hidden="true"
           />
           <div
-            class="bg-mw-primary-active relative size-6 rotate-90 rounded-full p-0.5 group-focus-within:ring-2"
+            class="mw:relative mw:size-6 mw:rotate-90 mw:rounded-full mw:bg-mw-primary-active mw:p-0.5 mw:group-focus-within:ring-2"
             :style="{ left: `calc(${volume}% - 0.75rem)` }"
             :aria-label="`Volume: ${volume}%`"
             :aria-valuemin="1"
@@ -49,9 +49,9 @@
             aria-controls="volume-slider"
             role="slider"
           >
-            <span v-html="returnVolumeIcon" class="text-mw-primary-typography rotate-90" />
+            <span v-html="returnVolumeIcon" class="mw:rotate-90 mw:text-mw-primary-typography" />
             <div
-              class="border-mw-primary-border bg-mw-primary absolute top-0 right-[calc(100%+0.5rem)] rounded border px-2 py-0.5 text-sm font-semibold text-primary-typography opacity-0 transition-opacity group-hover:opacity-100"
+              class="mw:text-primary-typography mw:absolute mw:top-0 mw:right-[calc(100%+0.5rem)] mw:rounded mw:border mw:border-mw-primary-border mw:bg-mw-primary mw:px-2 mw:py-0.5 mw:text-sm mw:font-semibold mw:opacity-0 mw:transition-opacity mw:group-hover:opacity-100"
               aria-hidden="true"
             >
               {{ volume }}%

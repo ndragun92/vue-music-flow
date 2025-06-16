@@ -1,20 +1,20 @@
 <template>
   <div
-    class="text-mw-primary-typography fixed right-0 bottom-0 left-0 z-40"
+    class="mw:fixed mw:right-0 mw:bottom-0 mw:left-0 mw:z-40 mw:text-mw-primary-typography"
     :class="{
-      'pointer-events-none opacity-0': !audioSource,
-      'opacity-100 transition-opacity duration-700': audioSource,
+      'mw:pointer-events-none mw:opacity-0': !audioSource,
+      'mw:opacity-100 mw:transition-opacity mw:duration-700': audioSource,
     }"
   >
     <PlayerPlaylist
       v-if="!props.hidePlaylistPopup"
       :class="{
-        'pointer-events-none opacity-0': !audioSource,
-        'opacity-100 duration-700': audioSource,
+        'mw:pointer-events-none mw:opacity-0': !audioSource,
+        'mw:opacity-100 mw:duration-700': audioSource,
       }"
     />
     <div
-      class="border-mw-primary-border bg-mw-primary text-mw-primary-typography relative z-50 grid h-60 min-w-72 items-center gap-x-2 border-t px-2 whitespace-nowrap phone:h-40 tablet:h-20 tablet:gap-x-4"
+      class="mw:relative mw:z-50 mw:grid mw:h-60 mw:min-w-72 mw:items-center mw:gap-x-2 mw:border-t mw:border-mw-primary-border mw:bg-mw-primary mw:px-2 mw:whitespace-nowrap mw:text-mw-primary-typography mw:phone:h-40 mw:tablet:h-20 mw:tablet:gap-x-4"
       :class="[returnGrid]"
     >
       <div
@@ -25,7 +25,7 @@
         <slot name="image" v-bind="{ track: returnTrack }">
           <div v-if="returnTrack?.artwork" class="p-1.5">
             <img
-              class="border-mw-primary-border bg-mw-secondary size-14 rounded border object-cover p-0.5"
+              class="mw:size-14 mw:rounded mw:border mw:border-mw-primary-border mw:bg-mw-secondary mw:object-cover mw:p-0.5"
               :key="returnTrack?.artwork"
               :src="returnTrack?.artwork"
               :alt="returnTrack?.title"
@@ -35,19 +35,21 @@
         </slot>
       </div>
       <div
-        class="tablet:w-80 tablet:max-w-[initial]"
+        class="mw:tablet:w-80 mw:tablet:max-w-[initial]"
         :style="{
           gridArea: 'metadata',
         }"
       >
         <slot name="metadata" v-bind="{ track: returnTrack }">
-          <h3 class="truncate font-semibold">
+          <h3 class="mw:truncate mw:font-semibold">
             {{ returnTrack?.title }}
           </h3>
-          <h4 class="text-mw-secondary-typography truncate text-sm">{{ returnTrack?.artist }}</h4>
+          <h4 class="mw:truncate mw:text-sm mw:text-mw-secondary-typography">
+            {{ returnTrack?.artist }}
+          </h4>
         </slot>
       </div>
-      <div class="flex items-center gap-1" :style="{ gridArea: 'controls' }">
+      <div class="mw:flex mw:items-center mw:gap-1" :style="{ gridArea: 'controls' }">
         <slot
           name="controls"
           v-bind="{
@@ -62,9 +64,9 @@
         >
           <button
             v-if="playlist.length"
-            class="hover:text-mw-primary-hover flex size-10 cursor-pointer items-center justify-center rounded p-2"
+            class="mw:flex mw:size-10 mw:cursor-pointer mw:items-center mw:justify-center mw:rounded mw:p-2 mw:hover:text-mw-primary-hover"
             :class="{
-              'text-mw-primary-active': shuffle,
+              'mw:text-mw-primary-active': shuffle,
             }"
             type="button"
             aria-label="Toggle shuffle"
@@ -74,7 +76,7 @@
           </button>
           <button
             v-if="playlist.length"
-            class="hover:text-mw-primary-hover flex size-10 cursor-pointer items-center justify-center rounded p-2"
+            class="mw:flex mw:size-10 mw:cursor-pointer mw:items-center mw:justify-center mw:rounded mw:p-2 mw:hover:text-mw-primary-hover"
             type="button"
             aria-label="Play previous track"
             @click="onPlayPreviousTrack"
@@ -82,7 +84,7 @@
             <IconPrevious />
           </button>
           <button
-            class="hover:text-mw-primary-hover flex size-10 cursor-pointer items-center justify-center rounded p-2"
+            class="mw:flex mw:size-10 mw:cursor-pointer mw:items-center mw:justify-center mw:rounded mw:p-2 mw:hover:text-mw-primary-hover"
             type="button"
             :aria-label="isPlaying ? 'Pause' : 'Play'"
             :aria-pressed="isPlaying ? 'true' : 'false'"
@@ -93,7 +95,7 @@
           </button>
           <button
             v-if="playlist.length"
-            class="hover:text-mw-primary-hover flex size-10 cursor-pointer items-center justify-center rounded p-2"
+            class="mw:flex mw:size-10 mw:cursor-pointer mw:items-center mw:justify-center mw:rounded mw:p-2 mw:hover:text-mw-primary-hover"
             type="button"
             aria-label="Play next track"
             @click="onPlayNextTrack"
@@ -101,9 +103,9 @@
             <IconNext />
           </button>
           <button
-            class="hover:text-mw-primary-hover flex size-10 cursor-pointer items-center justify-center rounded p-2"
+            class="mw:flex mw:size-10 mw:cursor-pointer mw:items-center mw:justify-center mw:rounded mw:p-2 mw:hover:text-mw-primary-hover"
             :class="{
-              'text-mw-primary-active': ['all', 'single'].includes(playlistOptions.repeat),
+              'mw:text-mw-primary-active': ['all', 'single'].includes(playlistOptions.repeat),
             }"
             type="button"
             aria-label="Toggle repeat"
@@ -116,7 +118,7 @@
         </slot>
       </div>
       <div
-        class="text-center text-sm"
+        class="mw:text-center mw:text-sm"
         :style="{
           gridArea: 'currentDuration',
         }"
@@ -125,19 +127,19 @@
           {{ formattedCurrentDuration }}
         </slot>
       </div>
-      <div :style="{ gridArea: 'waveform' }" class="relative min-w-0 flex-1">
+      <div :style="{ gridArea: 'waveform' }" class="mw:relative mw:min-w-0 mw:flex-1">
         <slot name="waveform" v-bind="{ initializing }">
-          <div ref="wavesurferElement" class="w-full" />
+          <div ref="wavesurferElement" class="mw:w-full" />
           <div
             v-if="initializing"
-            class="bg-mw-primary/85 text-mw-primary-typography absolute inset-0 z-50 flex items-center justify-center text-center"
+            class="mw:absolute mw:inset-0 mw:z-50 mw:flex mw:items-center mw:justify-center mw:bg-mw-primary/85 mw:text-center mw:text-mw-primary-typography"
           >
-            <IconLoadingWaveform class="size-8" />
+            <IconLoadingWaveform class="mw:size-8" />
           </div>
         </slot>
       </div>
       <div
-        class="text-center text-sm"
+        class="mw:text-center mw:text-sm"
         :style="{
           gridArea: 'endDuration',
         }"
@@ -150,23 +152,23 @@
         :style="{
           gridArea: 'volume',
         }"
-        class="relative"
+        class="mw:relative"
       >
         <slot name="volume">
-          <PlayerVolume class="absolute" />
+          <PlayerVolume class="mw:absolute" />
         </slot>
       </div>
       <div
         :style="{
           gridArea: 'actions',
         }"
-        class="flex items-center gap-x-2 tablet:gap-x-4"
+        class="mw:flex mw:items-center mw:gap-x-2 mw:tablet:gap-x-4"
       >
         <slot name="actions" v-bind="{ track: returnTrack }" />
         <slot name="close" v-bind="{ onClosePlayer }">
           <button
             type="button"
-            class="hover:text-mw-primary-hover flex size-10 cursor-pointer items-center justify-center rounded p-1"
+            class="mw:flex mw:size-10 mw:cursor-pointer mw:items-center mw:justify-center mw:rounded mw:p-1 mw:hover:text-mw-primary-hover"
             aria-label="Close player"
             @click.stop.prevent="onClosePlayer"
           >
@@ -207,7 +209,7 @@ const props = defineProps<Props>()
 const returnGrid = computed(() => {
   return (
     props.grid ||
-    `[grid-template-areas:'image_metadata_metadata_metadata'_'currentDuration_waveform_waveform_endDuration'_'controls_controls_volume_actions'] grid-cols-[auto_minmax(0,1fr)_auto_auto] phone:[grid-template-areas:'image_metadata_controls_volume_actions'_'currentDuration_waveform_waveform_waveform_endDuration'] phone:grid-cols-[auto_minmax(0,1fr)_auto_auto_auto] tablet:[grid-template-areas:'image_metadata_controls_currentDuration_waveform_endDuration_volume_actions'] tablet:grid-cols-[auto_auto_auto_minmax(0,3rem)_minmax(0,1fr)_minmax(0,3rem)_auto_auto_auto]`
+    `mw:[grid-template-areas:'image_metadata_metadata_metadata'_'currentDuration_waveform_waveform_endDuration'_'controls_controls_volume_actions'] mw:grid-cols-[auto_minmax(0,1fr)_auto_auto] mw:phone:[grid-template-areas:'image_metadata_controls_volume_actions'_'currentDuration_waveform_waveform_waveform_endDuration'] mw:phone:grid-cols-[auto_minmax(0,1fr)_auto_auto_auto] mw:tablet:[grid-template-areas:'image_metadata_controls_currentDuration_waveform_endDuration_volume_actions'] mw:tablet:grid-cols-[auto_auto_auto_minmax(0,3rem)_minmax(0,1fr)_minmax(0,3rem)_auto_auto_auto]`
   )
 })
 

@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import "tailwindcss" prefix(mw);
 
 @theme {
     --breakpoint-phone: 40rem;
