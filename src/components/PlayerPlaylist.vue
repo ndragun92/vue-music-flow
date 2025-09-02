@@ -59,8 +59,8 @@
               <span
                 class="mw:group-focus:text-primary-hover mw:flex mw:size-10 mw:cursor-pointer mw:items-center mw:justify-center mw:rounded mw:p-2 mw:group-hover:text-mw-primary-hover"
               >
-                <IconPlay v-if="!isTrackPlaying(track.id)" />
-                <IconPause v-else />
+                <IconPlay class="mw:size-10" v-if="!isTrackPlaying(track.id)" />
+                <IconPause class="mw:size-10" v-else />
               </span>
             </span>
           </span>
