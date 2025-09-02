@@ -47,7 +47,7 @@
           aria-label="Mark as favorite"
           @click="onMarkTrackAsFavorite(track)"
         >
-          <IconHeart />
+          <IconHeart class="mw:size-10" />
         </button>
       </template>
     </AudioPlayer>

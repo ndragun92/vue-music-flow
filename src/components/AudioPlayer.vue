@@ -72,7 +72,7 @@
             aria-label="Toggle shuffle"
             @click="onToggleShuffle"
           >
-            <IconShuffle />
+            <IconShuffle class="mw:size-10" />
           </button>
           <button
             v-if="playlist.length"
@@ -81,7 +81,7 @@
             aria-label="Play previous track"
             @click="onPlayPreviousTrack"
           >
-            <IconPrevious />
+            <IconPrevious class="mw:size-10" />
           </button>
           <button
             class="mw:flex mw:size-10 mw:cursor-pointer mw:items-center mw:justify-center mw:rounded mw:p-2 mw:hover:text-mw-primary-hover"
@@ -90,8 +90,8 @@
             :aria-pressed="isPlaying ? 'true' : 'false'"
             @click.stop.prevent="togglePlayback"
           >
-            <IconPlay v-if="!isPlaying" />
-            <IconPause v-else />
+            <IconPlay class="mw:size-10" v-if="!isPlaying" />
+            <IconPause class="mw:size-10" v-else />
           </button>
           <button
             v-if="playlist.length"
@@ -100,7 +100,7 @@
             aria-label="Play next track"
             @click="onPlayNextTrack"
           >
-            <IconNext />
+            <IconNext class="mw:size-10" />
           </button>
           <button
             class="mw:flex mw:size-10 mw:cursor-pointer mw:items-center mw:justify-center mw:rounded mw:p-2 mw:hover:text-mw-primary-hover"
@@ -111,9 +111,9 @@
             aria-label="Toggle repeat"
             @click="onToggleRepeat"
           >
-            <IconRepeatAll v-if="playlistOptions.repeat === 'all'" />
-            <IconRepeatOne v-else-if="playlistOptions.repeat === 'single'" />
-            <IconRepeatAll v-else />
+            <IconRepeatAll class="mw:size-10" v-if="playlistOptions.repeat === 'all'" />
+            <IconRepeatOne class="mw:size-10" v-else-if="playlistOptions.repeat === 'single'" />
+            <IconRepeatAll class="mw:size-10" v-else />
           </button>
         </slot>
       </div>
@@ -172,7 +172,7 @@
             aria-label="Close player"
             @click.stop.prevent="onClosePlayer"
           >
-            <IconClose />
+            <IconClose class="mw:size-10" />
           </button>
         </slot>
       </div>
