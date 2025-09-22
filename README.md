@@ -80,6 +80,10 @@ npm run dev
 npm run build
 ```
 
+### CSS scoping to avoid Tailwind collisions
+
+The generated CSS is fully scoped to the library under the `.vue-music-flow` namespace so it won’t collide with your app’s Tailwind setup. The component already renders with this wrapper class, so you don’t need to add it manually. Just import `vue-music-flow.css` as shown above.
+
 ### Run Unit Tests with [Vitest](https://vitest.dev/)
 
 ```sh

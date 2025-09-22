@@ -1,6 +1,6 @@
 <template>
   <div
-    class="mw:fixed mw:right-0 mw:bottom-0 mw:left-0 mw:z-40 mw:text-mw-primary-typography"
+    class="vue-music-flow mw:fixed mw:right-0 mw:bottom-0 mw:left-0 mw:z-40 mw:text-mw-primary-typography"
     :class="{
       'mw:pointer-events-none mw:opacity-0': !audioSource,
       'mw:opacity-100 mw:transition-opacity mw:duration-700': audioSource,
